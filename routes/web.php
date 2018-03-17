@@ -11,6 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/home', function () {
+    return view('pages.home');
 });
+Route::get('/', function () {
+    return redirect('/login');
+});
+Route::get('/register', function () {
+    return view('pages.register');
+});
+Route::get('/login', function () {
+    return view('pages.login');
+});
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/register', 'HomeController@index')->name('register');
+// Route::get('/login', 'HomeController@index')->name('login');
