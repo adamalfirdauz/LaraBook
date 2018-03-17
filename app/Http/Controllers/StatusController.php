@@ -14,10 +14,11 @@ class StatusController extends Controller
         $validatedData = $request->validate([
             'konten' => 'required'
         ]);
-        Status::create([
+        $status = Status::create([
             'konten' => $request->konten,
             'user_id' => Auth::user()->id,
         ]);
-        return back();
+        if($status) return back()->with('success', 'Status berhasil dibagikan');
+        else return back()->with('danger', 'Error');
     }
 }
