@@ -19,15 +19,15 @@
           </div>
           <div class="box-body">
             <div class="col-md-12">
-            <form method="POST" action="#" class="form-horizontal">
+            <form method="POST" action="{{route('bagikanStatus')}}" class="form-horizontal">
                 @csrf
                 <div class="form-group">
-                  <textarea class="form-control" rows="3" placeholder="Apa yang anda pikirkan?"></textarea>
+                  <textarea name="konten" class="form-control" rows="3" placeholder="Apa yang anda pikirkan?"></textarea>
+                </div>
+                <div class="box-footer">
+                  <button type="submit" class="btn btn-info pull-right">Bagikan</button>
                 </div>
             </form>
-            <div class="box-footer">
-              <button type="submit" class="btn btn-info pull-right">Bagikan</button>
-            </div>
           </div>
           </div>
         </div>

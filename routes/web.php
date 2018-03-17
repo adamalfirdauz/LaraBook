@@ -25,6 +25,6 @@ Route::get('/login', function () {
 });
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/home', 'StatusController@create')->name('bagikanStatus');
 // Route::get('/register', 'HomeController@index')->name('register');
 // Route::get('/login', 'HomeController@index')->name('login');

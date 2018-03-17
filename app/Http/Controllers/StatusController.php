@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Status;
+use Auth;
 use Illuminate\Support\Facades\Validator;
 
 class StatusController extends Controller
@@ -13,10 +14,10 @@ class StatusController extends Controller
         $validatedData = $request->validate([
             'konten' => 'required'
         ]);
-        dd(Auth::user());
         Status::create([
             'konten' => $request->konten,
-            'user_id' => Auth::user(),
+            'user_id' => Auth::user()->id,
         ]);
+        return back();
     }
 }
