@@ -11,7 +11,7 @@ LaraBook merupakan sebuah platform media sosial sederhana yang dibangun mengguna
 
 # Petunjuk Instalasi
 
-1. Clone langsung di direktori projek.
+1. Clone atau download project.
     ```sh
     $ git clone https://github.com/adamalfirdauz/LaraBook.git
     ```
