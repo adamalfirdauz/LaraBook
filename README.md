@@ -40,16 +40,16 @@ LaraBook merupakan sebuah platform media sosial sederhana yang dibangun mengguna
 Berikut ini adalah agenda / materi untuk workshop pada hari Minggu, 18 Maret 2018
 1.  Penjelasan singkat perihal laravel, dan MVC
 2.  Buat project laravel baru 
+3.  Clone bahan template ([Source](https://github.com/adamalfirdauz/LaraBook-template))
     ```sh
     $ git clone https://github.com/adamalfirdauz/LaraBook-template.git
     ```
-2.  Clone bahan template ([Source](github.com/adamalfirdauz/LaraBook-template))
-3.  Lakukan Blade templating
-4.  Authentication Scaffolding
-5.  Buat model, migration, controller
-6.  Menggunakan migration
-7.  Menggunakan controller
-8.  Menggunakan model
-7.  Routing
+4.  Lakukan Blade templating
+5.  Authentication Scaffolding
+6.  Buat model, migration, controller
+7.  Menggunakan migration
+8.  Menggunakan controller
+9.  Menggunakan model
+10.  Routing
 
 # Powered by [Codepanda](https://codepanda.web.id) with &hearts; and &#9786;
