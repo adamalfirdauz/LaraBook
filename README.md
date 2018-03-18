@@ -47,6 +47,9 @@ Berikut ini adalah agenda / materi untuk workshop pada hari Minggu, 18 Maret 201
 3.  Lakukan Blade templating
 4.  Authentication Scaffolding
 5.  Buat model, migration, controller
-5.  Routing
+6.  Menggunakan migration
+7.  Menggunakan controller
+8.  Menggunakan model
+7.  Routing
 
 # Powered by [Codepanda](https://codepanda.web.id) with &hearts; and &#9786;
