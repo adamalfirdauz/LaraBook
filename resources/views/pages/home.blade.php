@@ -19,7 +19,7 @@
           </div>
           <div class="box-body">
             <div class="col-md-12">
-            <form method="POST" action="{{route('bagikanStatus')}}" class="form-horizontal">
+            <form method="POST" action="{{route('buatStatus')}}" class="form-horizontal">
                 @csrf
                 <div class="form-group">
                   <textarea name="konten" class="form-control" rows="3" placeholder="Apa yang anda pikirkan?"></textarea>
@@ -33,12 +33,13 @@
         </div>
         <div class="row">
         <div class="col-md-12">
+          @foreach (App\Status::get() as $status)
           <div class="box box-widget">
             <div class="box-header with-border">
               <div class="user-block">
                 <img class="img-circle" src="{{ asset('assets/img/user1-128x128.jpg') }}" alt="User Image">
-                <span class="username"><a href="#">Jonathan Burke Jr.</a></span>
-                <span class="description">Shared publicly - 7:30 PM Today</span>
+                <span class="username"><a href="#">{{App\User::where('id', '=', $status->user_id)->value('name') }}</a></span>
+                <span class="description">{{ $status->created_at->diffForHumans() }}</span>
               </div>
               <div class="box-tools">
                 <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Mark as read">
@@ -50,42 +51,41 @@
             </div>
             <div class="box-body">
               {{--  <img class="img-responsive pad" src="img/photo2.png" alt="Photo">  --}}
-              <p>I took this photo this morning. What do you guys think?</p>
-              <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
-              <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
-              <span class="pull-right text-muted">127 likes - 3 comments</span>
+              <p>{{$status->konten}}</p>
+              {{--  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>  --}}
+              <form action="{{route('like')}}" method="post">
+                @csrf
+                <button name="status_id" type="submit" class="btn btn-default btn-xs" value="{{$status->id}}"><i class="fa fa-thumbs-o-up"></i>Like</button>
+              </form>
+              <span class="pull-right text-muted">{{App\Like::where('status_id', '=', $status->id)->count()}} like - {{App\Comment::where('status_id', '=', $status->id)->count()}} comments</span>
             </div>
             <div class="box-footer box-comments">
-              <div class="box-comment">
-                <img class="img-circle img-sm" src="{{asset('assets/img/user3-128x128.jpg') }}" alt="User Image">
-                <div class="comment-text">
-                      <span class="username">
-                        Maria Gonzales
-                        <span class="text-muted pull-right">8:03 PM Today</span>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
+              @foreach (App\Comment::where('status_id', '=', $status->id)->get() as $comment)
+                <div class="box-comment">
+                  <img class="img-circle img-sm" src="{{asset('assets/img/user3-128x128.jpg') }}" alt="User Image">
+                  <div class="comment-text">
+                        <span class="username">
+                          {{App\User::where('id', '=', $comment->user_id)->value('name')}}
+                          <span class="text-muted pull-right">{{$comment->created_at->diffForHumans()}}</span>
+                        </span>
+                        <p>{{$comment->konten}}</p>
+                  </div>
                 </div>
-              </div>
-              <div class="box-comment">
-                <img class="img-circle img-sm" src="{{asset('assets/img/user4-128x128.jpg') }}" alt="User Image">
-                <div class="comment-text">
-                      <span class="username">
-                        Luna Stark
-                        <span class="text-muted pull-right">8:03 PM Today</span>
-                  It is a long established fact that a reader will be distracted
-                  by the readable content of a page when looking at its layout.
-                </div>
-              </div>
+              @endforeach              
             </div>
             <div class="box-footer">
-              <form action="#" method="post">
-                <img class="img-responsive img-circle img-sm" src="{{ asset('assets/img/user4-128x128.jpg') }}" alt="Alt Text">
+              <form action="{{ route('buatKomentar') }}" method="post">
+                @csrf
+                <input name"status_id" type="hidden" value="{{$status->id}}">
+                <img class="img-responsive img-circle img-sm" src="{{ asset('assets/img/user4-128x128.jpg') }}" alt="Alt Text"> 
                 <div class="img-push">
-                  <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
+                  <input name="konten" type="text" class="form-control input-sm" placeholder="Tekan enter untuk mengirim komentar">
+                  <input name="status_id" type="hidden" class="form-control input-sm" value="{{$status->id}}">
                 </div>
               </form>
             </div>
           </div>
+          @endforeach
       </section>
     </div>
 </div>

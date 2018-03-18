@@ -4,7 +4,7 @@
 <script src="{{ asset('assets/js/fastclick.js') }}"></script>
 <script src="{{ asset('assets/js/adminlte.min.js') }}"></script>
 <script src="{{ asset('assets/js/demo.js') }}"></script>
-<script src="js/icheck.min.js"></script>
+<script src="{{ asset('js/icheck.min.js') }}"></script>
 <script>
     $(function () {
         $('input').iCheck({
