@@ -3,8 +3,8 @@
 @include('layouts.part.head')
 <body class="hold-transition skin-blue layout-top-nav">
 <div class="wrapper">
-  @include('layouts.part.alert')
   @include('layouts.part.header')
+  @include('layouts.part.alert')
   @yield('content')
   @include('layouts.part.footer')
 </div>

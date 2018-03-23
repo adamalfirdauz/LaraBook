@@ -26,7 +26,8 @@ Route::get('/login', function () {
 Auth::routes();
 
 Route::post('/home', 'StatusController@create')->name('buatStatus');
+Route::post('/home/editStatus', 'StatusController@edit')->name('editStatus');
+Route::post('/home/hapusStatus', 'StatusController@hapus')->name('hapusStatus');
 Route::post('/home/createComment', 'CommentController@create')->name('buatKomentar');
 Route::post('/home/like', 'LikeController@like')->name('like');
-// Route::get('/register', 'HomeController@index')->name('register');
-// Route::get('/login', 'HomeController@index')->name('login');
+Route::post('/home/deleteComment', 'CommentController@delete')->name('hapusKomentar');
