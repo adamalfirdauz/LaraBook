@@ -13,7 +13,7 @@
 
 Route::get('/home', function () {
     return view('pages.home');
-});
+})->middleware('auth');
 Route::get('/', function () {
     return redirect('/login');
 });
@@ -25,7 +25,7 @@ Route::get('/login', function () {
 });
 Auth::routes();
 
-Route::post('/home', 'StatusController@create')->name('buatStatus');
+Route::post('/home', 'StatusController@create')->name('buatStatus')->middleware('auth');
 Route::post('/home/editStatus', 'StatusController@edit')->name('editStatus');
 Route::post('/home/hapusStatus', 'StatusController@hapus')->name('hapusStatus');
 Route::post('/home/createComment', 'CommentController@create')->name('buatKomentar');

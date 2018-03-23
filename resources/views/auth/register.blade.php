@@ -55,7 +55,7 @@
             <hr>
             <div class="row text-center">
                 <div class="col-xs-12">
-                    <a href="login.html" class="text-center">Sudah punya akun?</a>
+                    <a href="/login" class="text-center">Sudah punya akun?</a>
                 </div>
             </div>
         </div>

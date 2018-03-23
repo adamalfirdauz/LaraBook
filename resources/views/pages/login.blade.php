@@ -31,7 +31,7 @@
             <hr>
             <div class="row text-center">
                 <div class="col-xs-12">
-                    <a href="register.html" class="text-center">Belum punya akun?</a>
+                    <a href="{{route('register')}}" class="text-center">Belum punya akun?</a>
                 </div>
             </div>
         </div>
